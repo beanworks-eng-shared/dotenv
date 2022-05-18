@@ -90,7 +90,7 @@ __dotenv_cmd=.env
 			realpath.resolved "$REPLY"
 		fi
 		{ [[ ! -f "$REPLY" ]] || cp -p "$REPLY" "$REPLY.bak"; } &&
-		printf %s "$__dotenv" >"$REPLY.bak" && mv "$REPLY.bak" "$REPLY"
+		printf %s "$__dotenv" >"$REPLY.bak" && cp -f "$REPLY.bak" "$REPLY" && rm -f "$REPLY.bak"
 	esac
 }
 ```
